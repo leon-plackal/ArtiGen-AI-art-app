@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root{
+    --green-variant: #c50b49;
+    --background-1: rgb(239, 239, 239);
+    --background-2: #d1d1d1;
+}
 * {
     font-family: 'Inter', sans-serif;
 }
