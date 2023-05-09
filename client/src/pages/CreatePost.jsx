@@ -81,11 +81,11 @@ const CreatePost = () => {
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-        <h1 className='font-extrabold text-[#222328] text-[32px]'>
-          Create
+        <h1 className='font-bold text-[#222328] text-[32px]'>
+          Create an artwork
         </h1>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>
-          Create imaginative and visually stunning images through DALLE-AI and share them through the community
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[750px]'>
+          Here you can enter your prompt to generate a piece of art by the DALLE-AI tool, and if you think your art looks amazing feel free to add it to our community showcase for others to see. Have Fun!
         </p>
       </div>
 
@@ -103,7 +103,7 @@ const CreatePost = () => {
           labelName='Prompt'
           type='text'
           name='prompt'
-          placeholder='an oil painting portrait of a capybara wearing medieval royal robes and an ornate crown on a dark background'
+          placeholder='eg. An oil painting portrait of a capybara wearing medieval royal robes on a dark background'
           value={form.prompt}
           handleChange={handleChange}
           isSurpriseMe
@@ -111,7 +111,7 @@ const CreatePost = () => {
         />
 
         {/* show AI generated image ELSE preview of it */}
-        <div className='relative bg-gray-50 border border-gray-300 text-sm text-gray-900 rounder-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
+        <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
           {form.photo ? (
           <img
           src={form.photo}
@@ -127,7 +127,7 @@ const CreatePost = () => {
         )}
         {/* if generating image: */}
         {generatingImg && (
-          <div className='asbolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.4)] rounded-lg'>
+          <div className='absolute inset-0 z-0 flex justify-center items-center bg-[rgba(0,0,0,0.5)] rounded-lg'>
             <Loader/>
           </div>
         )}
@@ -145,10 +145,10 @@ const CreatePost = () => {
           </div>
 
           <div className='mt-10'>
-            <p className='mt-2 text-[#666e75] text-[14px]'>Once you have created the image, you can share it with others in the commuity</p>
-            <button className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5'
+            <p className='mt-2 text-[#666e75] text-[14px]'>After generating the image, click the button below to add it to the community showcase!</p>
+            <button className='mt-3 text-white bg-red-1 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5'
             type='submit'>
-              {loading ? 'Sharing...' : 'Share with the community'}
+              {loading ? 'Adding...' : 'Add to the showcase'}
             </button>
           </div>
       </form>

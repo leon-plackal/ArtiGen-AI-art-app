@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 :root{
-    --green-variant: #c50b49;
+    --red-variant: #ca3b68;
     --background-1: rgb(239, 239, 239);
-    --background-2: #d1d1d1;
+    --background-2: #272727;
 }
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (min-width: 480px) {
