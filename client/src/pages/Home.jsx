@@ -2,17 +2,7 @@ import React, {useState ,useEffect} from 'react'
 import {Loader, Card, FormField} from '../components'
 
 // render cards, mapping over each post and return a card with key equal to post id, and spread them out
-const RenderCards = ({ data, title }) => {
-  if (data?.length > 0) {
-    return (
-      data.map((post) => <Card key={post._id} {...post} />)
-    );
-  }
 
-  return (
-    <h2 className="mt-5 font-bold text-[#6469ff] text-xl uppercase">{title}</h2>
-  );
-};
 
 const Home = () => {
   // create states
@@ -21,6 +11,30 @@ const Home = () => {
   const [searchText, setSearchText] = useState('')
   const [searchedResults, setSearchedResults] = useState(null)
   const [searchTimeout, setSearchTimeout] = useState(null)
+  const [visible, setVisible] = useState(5)
+  const [hasMore, sethasMore] = useState(true)
+  
+  const RenderCards = ({ data, title }) => {
+    if (data?.length > 0) {
+      return (
+        data.slice(0,visible).map((post) => <Card key={post._id} {...post} />)
+      );
+    }
+  
+    return (
+      <h2 className="mt-5 font-bold text-[#6469ff] text-xl uppercase">{title}</h2>
+    );
+  };
+
+  const showMoreItems = () => {
+    setLoading(true);
+    if (visible < allPosts.length) {
+      setVisible(prevValue => prevValue + 3)
+    } else { 
+      sethasMore(false)
+    }
+    setLoading(false);
+  }
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -108,6 +122,16 @@ const Home = () => {
                 />
               )}
             </div>
+
+            <div className='my-5 flex gap-5 items-center justify-center'>
+            <button
+            type='button'
+            onClick={showMoreItems}
+            className='text-white bg-slate-400 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+            >
+              {hasMore ? 'Load More' : 'No More Posts'}
+            </button>
+          </div>
           </>
         )}
       </div>
