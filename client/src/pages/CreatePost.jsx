@@ -19,7 +19,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setgeneratingImg(true);
-        const response = await fetch('https://Artigen-Node-Server-env.eba-8vdgmj4h.ap-southeast-2.elasticbeanstalk.com/api/v1/dalle', {
+        const response = await fetch('https://artigen-server.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const CreatePost = () => {
       setloading(true)
 
       try {
-        const response = await fetch('https://Artigen-Node-Server-env.eba-8vdgmj4h.ap-southeast-2.elasticbeanstalk.com/api/v1/post', {
+        const response = await fetch('https://artigen-server.onrender.com/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
