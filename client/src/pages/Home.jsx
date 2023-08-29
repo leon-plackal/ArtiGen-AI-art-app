@@ -40,7 +40,7 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('Artigen-Node-Server-env.eba-8vdgmj4h.ap-southeast-2.elasticbeanstalk.com/api/v1/post', {
+      const response = await fetch('https://Artigen-Node-Server-env.eba-8vdgmj4h.ap-southeast-2.elasticbeanstalk.com/api/v1/post', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
